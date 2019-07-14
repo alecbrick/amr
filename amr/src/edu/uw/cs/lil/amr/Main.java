@@ -87,10 +87,10 @@ public class Main {
 				"\tConvert a file of sentences paired with logical forms to sentences paired with AMRs.");
 		System.out.println("... test <exp_file> <data_1> <data_2> ... ");
 		System.out.println(
-				"\tTest parsing util. exp_file contains defintions and parser setup.");
+				"\tTest parsing util. exp_file contains definitions and parser setup.");
 		System.out.println("... underspec <types_file> <data_1> <data_2> ...");
 		System.out.println(
-				"\tUtility to create the logical constant underspecification maping.");
+				"\tUtility to create the logical constant underspecification mapping.");
 		System.out.println("... <amr_exp_file>");
 		System.out.println("\tRun AMR experiment.");
 	}
