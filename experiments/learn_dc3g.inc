@@ -8,7 +8,7 @@ type=genlex.template.supervised id=genlex maxTokens=2 mark=true
 type=genlex.template.text id=genlexText textType=txt generateKeywords=true attributes=sg
 type=genlex.composite id=genlexComposite procs=genlexText,genlex
 type=genlex.filter.amr id=genlexEntryFilter
-type=genlex.split.tower id=genlexSplit beam=%{conditionedBeam} parser=parser filter=filterFactory genlex=genlexComposite sentenceSyntax=A rules=ruleApp,sentToA,bareNoun,barePlural,topicAdverbial,punctuation,bareNE,npToA,massToA,pluralToA,ruleTower logger=logger tokenLimit=1 maxMarking=1 skipReachable=false conservative=true entryFilter=genlexEntryFilter bankspan=true
+type=genlex.split.tower id=genlexSplit beam=%{conditionedBeam} parser=parser filter=filterFactory genlex=genlexComposite sentenceSyntax=A rules=ruleApp,sentToA,bareNoun,barePlural,topicAdverbial,punctuation,bareNE,npToA,massToA,pluralToA,ruleTower,unaryLower,unwrapMonad logger=logger tokenLimit=1 maxMarking=1 skipReachable=false conservative=true entryFilter=genlexEntryFilter bankspan=true
 ## Parameter estimator
 type=estimator.adagrad id=adagrad initHistory=false rate=0.1
 ## Gradient function

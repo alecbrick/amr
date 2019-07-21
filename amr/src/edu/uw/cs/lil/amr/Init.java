@@ -24,13 +24,8 @@ import edu.cornell.cs.nlp.spf.base.hashvector.HashVectorFactory.Type;
 import edu.cornell.cs.nlp.spf.ccg.categories.syntax.Syntax;
 import edu.cornell.cs.nlp.spf.ccg.categories.syntax.SyntaxAttributeTyping;
 import edu.cornell.cs.nlp.spf.ccg.lexicon.factored.lambda.FactoringServices;
-import edu.cornell.cs.nlp.spf.mr.lambda.FlexibleTypeComparator;
-import edu.cornell.cs.nlp.spf.mr.lambda.LogicLanguageServices;
+import edu.cornell.cs.nlp.spf.mr.lambda.*;
 import edu.cornell.cs.nlp.spf.mr.lambda.LogicLanguageServices.Builder;
-import edu.cornell.cs.nlp.spf.mr.lambda.LogicalConstant;
-import edu.cornell.cs.nlp.spf.mr.lambda.LogicalExpressionReader;
-import edu.cornell.cs.nlp.spf.mr.lambda.SkolemId;
-import edu.cornell.cs.nlp.spf.mr.lambda.SkolemServices;
 import edu.cornell.cs.nlp.spf.mr.lambda.printers.LogicalExpressionToIndentedString;
 import edu.cornell.cs.nlp.spf.mr.language.type.TypeRepository;
 import edu.cornell.cs.nlp.utils.log.ILogger;
@@ -38,6 +33,7 @@ import edu.cornell.cs.nlp.utils.log.LoggerFactory;
 import edu.uw.cs.lil.amr.lambda.AMRServices;
 import edu.uw.cs.lil.amr.lambda.SortConjunctions;
 import edu.uw.cs.lil.amr.lambda.SpecificationMapping;
+import edu.uw.cs.lil.amr.lambda.monad.AMRMonadServices;
 import edu.uw.cs.lil.amr.ner.IllinoisNERWrapper;
 import edu.uw.cs.lil.amr.parser.rules.coordination.CoordinationServices;
 
@@ -107,6 +103,11 @@ public class Init {
 				stanfordModel, "c_op", LogicalConstant.read("DUMMY:e"),
 				LogicalConstant.read("name:<e,t>"), LogicLanguageServices
 						.getTypeRepository().getTypeCreateIfNeeded("<e,t>"));
+
+		// //////////////////////////////////////////
+		// Monad services.
+		// //////////////////////////////////////////
+		MonadServices.setInstance(new AMRMonadServices.Builder().build());
 
 		if (nerConfig != null) {
 			try {

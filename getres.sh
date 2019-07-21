@@ -1,6 +1,6 @@
 #!/bin/bash -e
 cd resources
-wget https://bitbucket.org/yoavartzi/amr-resources/downloads/alignments.mt.txt.tar.gz
+wget https://bitbucket.org/yoavartzi/amr-resources/downloads/alignments.mt.txt.tar.gz -OutFile alignments.mt.txt.tar.gz
 tar xzf alignments.mt.txt.tar.gz --exclude='._*' 
 rm alignments.mt.txt.tar.gz
 wget https://bitbucket.org/yoavartzi/amr-resources/downloads/easyccg-model-rebank.tar.gz

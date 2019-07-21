@@ -12,7 +12,7 @@ type=rule.baserules id=baseRules rules=ruleComp,ruleApp,punctuation
 type=rule.recursive.combination id=ruleCombine baseRules=baseRules
 type=rule.recursive.lift.left id=ruleLiftLeft baseRules=baseRules
 type=rule.recursive.lift.right id=ruleLiftRight baseRules=baseRules
-type=rule.tower.reversible id=ruleTower baseRules=ruleApp, recursiveRules=ruleCombine,ruleLiftLeft,ruleLiftRight
+type=rule.tower.reversible id=ruleTower baseRules=ruleApp recursiveRules=ruleCombine,ruleLiftLeft,ruleLiftRight
 ## Unary rules
 ### Topicalized adverbial phrase
 type=rule.shifting.generic.application.reversible id=topicAdverbial name=topic_ap function=S[x]/S[x]/(S[x]\S[x])\ :\ (lambda\ $0:<<e,t>,<e,t>>\ $0) startOnly=true
@@ -39,6 +39,9 @@ type=rule.shifting.amr.necoord id=neStampCoord syntax=NP[sg]
 type=rule.shifting.amr.keywordc1 id=keywordC1
 type=rule.shifting.generic.application.reversible id=keywordS name=keyword_s function=A/KEY\ :\ (lambda\ $0:e\ $0) completeOnly=true matchSyntax=true
 type=rule.shift.amr.keyword.single id=singleKeyword
+### DC-CCG
+type=rule.recursive.lower.unary.reversible id=unaryLower name=V completeOnly=true
+type=rule.monadic.unwrap.reversible id=unwrapMonad name=unwrap completeOnly=true
 # NF constraints
 type=constraint.unary.lex id=unaryLexConstraint rules=np_adj_rel,np_adj_arg0,np_adj_arg1,np_adj_rel_of
 type=nf.hb id=nfValidator extraConstraints=unaryLexConstraint
